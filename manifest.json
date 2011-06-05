@@ -1,0 +1,17 @@
+{
+	"name": "Eyes Carer",
+	"version": "1.0",
+	"description": "Take care of your eyes when read web pages in a force white",
+	"background_page": "background.html",
+	"browser_action": {
+		"default_icon": "icon.png"
+	},
+	"content_scripts": [ {
+		"js": [ "js/content.js" ],
+		"matches": [ "http://*/*", "https://*/*" ],
+		"run_at": "document_end"
+	} ],
+	"permissions": [
+		"tabs", "http://*/*", "https://*/*"
+	]
+}
