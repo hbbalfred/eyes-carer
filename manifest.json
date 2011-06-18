@@ -1,6 +1,6 @@
 {
 	"name": "Eyes Carer",
-	"version": "1.0",
+	"version": "1.1",
 	"description": "Take care of your eyes when read web pages in a force white",
 	"background_page": "background.html",
 	"browser_action": {

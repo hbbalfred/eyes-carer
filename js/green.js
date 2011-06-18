@@ -7,11 +7,25 @@ function setcolor( elem, col, enable )
 	{
 		for( var i = elem.childNodes.length; i--; )
 		{
-			var child = elem.childNodes[ i ];
-			if( white( getcolor( child ) ) ) setcolor( child, col, true );
+			var child = realchild( elem.childNodes[ i ] );
+			if( !child ) continue;
+			if( child.tagName.toLowerCase() === 'body' ) setcolor( child, col, true );
+			else if( white( getcolor( child ) ) ) setcolor( child, col, true );
 			else setcolor( child, col, false  );
 		}
 	}
+}
+
+function realchild( elem )
+{
+	if( !elem.tagName ) return null;
+
+	var tagName = elem.tagName.toLowerCase();
+	if( 'frame' === tagName || 'iframe' === tagName )
+	{
+		return elem.contentDocument.body;
+	}
+	return elem;
 }
 
 function getcolor( elem )
